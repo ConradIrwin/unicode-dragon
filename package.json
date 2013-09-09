@@ -1,0 +1,10 @@
+{
+    "name": "unicode-dragon",
+    "version": "0.1.2",
+    "description": "Eats invalid unicode for breakfast. Replaces unmatched surrogate pairs by U+FFFD",
+    "homepage": "https://github.com/ConradIrwin/node-dragon",
+    "main": "index.js",
+    "license": {"license": "MIT"},
+    "devDependencies": {"mocha": "latest"},
+    "scripts": {"test": "mocha test"}
+}
