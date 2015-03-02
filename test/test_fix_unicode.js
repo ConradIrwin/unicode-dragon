@@ -4,11 +4,13 @@ unicodeDragon = require('../index')
 describe('unicodeDragon', function () {
 
   it('should replace unpaired low surrogates', function () {
-    assert.equal(unicodeDragon("a\uD800o a\uD83Do a\uDBFFo"), "a\uFFFDo a\uFFFDo a\uFFFDo")
+    assert.equal(unicodeDragon("a\uD800o a\uD83Do a\uDBFFo"),
+                               "a\uFFFDo a\uFFFDo a\uFFFDo")
   });
 
   it('should replace unpaired high surrogates', function () {
-    assert.equal(unicodeDragon("a\uDC00o a\uDE0Ao a\uDFFFo"), "a\uFFFDo a\uFFFDo a\uFFFDo")
+    assert.equal(unicodeDragon("a\uDC00o a\uDE0Ao a\uDFFFo"),
+                               "a\uFFFDo a\uFFFDo a\uFFFDo")
   });
 
   it('should replace low surrogates at the end', function () {
@@ -20,7 +22,8 @@ describe('unicodeDragon', function () {
   });
 
   it('should preserve paired surrogates', function () {
-    assert.equal(unicodeDragon("smile! \uD83D\uDE0A"), "smile! \uD83D\uDE0A")
+    var paired = "smile! \uD83D\uDE0A";
+    assert.equal(unicodeDragon(paired), paired)
   });
 
 })
